@@ -1,0 +1,719 @@
+/* ========================================
+   1. RESET DAN PENGATURAN DASAR
+======================================== */
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --secondary: #06b6d4;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --code-bg: #172033;
+    --success: #16a34a;
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+strong {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+code {
+    font-family: Consolas, 'Courier New', monospace;
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 18px 0;
+}
+
+/* ========================================
+   2. CONTAINER UTAMA
+======================================== */
+
+.page-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    width: min(1100px, calc(100% - 40px));
+    margin: 40px auto 60px;
+}
+
+/* ========================================
+   3. HEADER / HERO
+======================================== */
+
+.main-header {
+    position: relative;
+    overflow: hidden;
+    padding: 65px 24px;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #4338ca 0%,
+        #4f46e5 45%,
+        #0891b2 100%
+    );
+}
+
+.main-header::before,
+.main-header::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.main-header::before {
+    width: 280px;
+    height: 280px;
+    top: -150px;
+    left: -70px;
+}
+
+.main-header::after {
+    width: 350px;
+    height: 350px;
+    right: -120px;
+    bottom: -240px;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.header-content p {
+    color: #e0e7ff;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 0;
+}
+
+/* ========================================
+   4. KARTU MATERI
+======================================== */
+
+.card {
+    position: relative;
+    background: var(--surface);
+    padding: 30px;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    animation: fadeIn 0.5s ease both;
+}
+
+.card:hover {
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.09);
+    transform: translateY(-3px);
+}
+
+.card-header-icon {
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #eef2ff, #cffafe);
+    font-size: 27px;
+}
+
+.card-header-text {
+    margin-bottom: 18px;
+}
+
+.card-header-text h2 {
+    color: #1e293b;
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.card h3 {
+    color: #334155;
+    font-size: 1.2rem;
+    margin: 24px 0 12px;
+}
+
+.card h4 {
+    color: #334155;
+    font-size: 1rem;
+    margin: 20px 0 10px;
+}
+
+.card > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   5. HEADER BAGIAN INFORMASI
+======================================== */
+
+.code-block-header {
+    padding: 11px 16px;
+    margin-top: 20px;
+    color: #ffffff;
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    border-radius: 9px 9px 0 0;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.code-block-content {
+    padding: 20px 24px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 9px 9px;
+}
+
+.code-block-content ul {
+    margin-bottom: 0;
+}
+
+.code-block-content li:last-child {
+    margin-bottom: 0;
+}
+
+.structure-breakdown-header {
+    background: linear-gradient(90deg, #0891b2, #06b6d4);
+}
+
+.important-attributes-header {
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+/* ========================================
+   6. CONTOH KODE HTML
+======================================== */
+
+.code-example {
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid #263449;
+    border-radius: 12px;
+    background: var(--code-bg);
+}
+
+.code-label {
+    padding: 10px 16px;
+    background: #263449;
+    color: #a5b4fc;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-bottom: 1px solid #334155;
+}
+
+.code-example pre {
+    overflow-x: auto;
+    padding: 22px;
+    color: #e2e8f0;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    tab-size: 4;
+    white-space: pre;
+}
+
+.code-example pre code {
+    padding: 0;
+    background: transparent;
+    color: #e2e8f0;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+/* ========================================
+   7. TABEL HTML
+======================================== */
+
+.styled-table,
+.data-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.92rem;
+}
+
+.styled-table thead,
+.data-table thead {
+    color: #ffffff;
+    background: #4338ca;
+}
+
+.styled-table th,
+.styled-table td,
+.data-table th,
+.data-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+.styled-table th,
+.data-table th {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.styled-table tbody tr,
+.data-table tbody tr {
+    background: #ffffff;
+    transition: background 0.2s ease;
+}
+
+.styled-table tbody tr:nth-child(even),
+.data-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.styled-table tbody tr:hover,
+.data-table tbody tr:hover {
+    background: #eef2ff;
+}
+
+.styled-table tbody tr:last-child td,
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.passed {
+    color: var(--success);
+    margin-right: 5px;
+}
+
+/* ========================================
+   8. LIVE EXAMPLES
+======================================== */
+
+.live-example-block {
+    padding: 24px;
+    margin: 20px 0;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid var(--secondary);
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.live-example-block h1,
+.live-example-block h2,
+.live-example-block h3,
+.live-example-block h4 {
+    color: #1e293b;
+}
+
+.live-example-block h1 {
+    font-size: 2rem;
+    margin: 0 0 12px;
+}
+
+.live-example-block h2 {
+    font-size: 1.6rem;
+    margin: 0 0 12px;
+}
+
+.live-example-block h3 {
+    margin-top: 20px;
+}
+
+.live-example-block ul,
+.live-example-block ol {
+    margin-top: 8px;
+}
+
+.live-example-block a {
+    color: #4f46e5;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ========================================
+   9. FORMULIR
+======================================== */
+
+.sample-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.sample-form label {
+    margin-top: 8px;
+    color: #334155;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.sample-form input,
+.sample-form select,
+.sample-form textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.sample-form input::placeholder,
+.sample-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.sample-form input:focus,
+.sample-form select:focus,
+.sample-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.13);
+}
+
+.sample-form textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.sample-form select {
+    cursor: pointer;
+}
+
+/* ========================================
+   10. TOMBOL
+======================================== */
+
+.submit-btn,
+.result-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(79, 70, 229, 0.18);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.result-btn {
+    margin-top: 12px;
+}
+
+.submit-btn:hover,
+.result-btn:hover {
+    background: linear-gradient(135deg, #3730a3, #4f46e5);
+    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.25);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active,
+.result-btn:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   11. KARTU LATIHAN DAN MATERI LANJUTAN
+======================================== */
+
+.exercise-card {
+    border-top: 4px solid #8b5cf6;
+}
+
+.next-steps-card {
+    border-top: 4px solid #06b6d4;
+}
+
+.dev-tools-card {
+    border-top: 4px solid #f59e0b;
+}
+
+.congratulations-card {
+    border-top: 4px solid #22c55e;
+    background: linear-gradient(135deg, #ffffff, #f0fdf4);
+}
+
+.congratulations-card .card-header-icon {
+    background: #dcfce7;
+}
+
+.congratulations-card .card-header-text h2 {
+    color: #166534;
+}
+
+/* ========================================
+   12. ANIMASI
+======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   13. RESPONSIVE TABLET
+======================================== */
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 50px 20px;
+    }
+
+    .content-wrapper {
+        width: calc(100% - 28px);
+        margin: 24px auto 40px;
+    }
+
+    .card {
+        padding: 23px;
+        margin-bottom: 20px;
+    }
+
+    .card-header-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 24px;
+    }
+
+    .styled-table,
+    .data-table {
+        font-size: 0.85rem;
+    }
+
+    .styled-table th,
+    .styled-table td,
+    .data-table th,
+    .data-table td {
+        padding: 11px 12px;
+    }
+
+    .live-example-block {
+        padding: 18px;
+    }
+
+    .code-example pre {
+        padding: 17px;
+        font-size: 0.82rem;
+    }
+}
+
+/* ========================================
+   14. RESPONSIVE HP
+======================================== */
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .main-header {
+        padding: 42px 18px;
+    }
+
+    .header-content h1 {
+        font-size: 1.8rem;
+        letter-spacing: -0.5px;
+    }
+
+    .header-content p {
+        font-size: 0.95rem;
+    }
+
+    .content-wrapper {
+        width: calc(100% - 22px);
+        margin-top: 16px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .card-header-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .card h3 {
+        font-size: 1.08rem;
+    }
+
+    .code-block-content {
+        padding: 16px;
+    }
+
+    .code-example pre {
+        padding: 14px;
+        font-size: 0.76rem;
+    }
+
+    .live-example-block {
+        padding: 14px;
+    }
+
+    .live-example-block h1 {
+        font-size: 1.65rem;
+    }
+
+    .live-example-block h2 {
+        font-size: 1.35rem;
+    }
+
+    .styled-table,
+    .data-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .styled-table th,
+    .styled-table td,
+    .data-table th,
+    .data-table td {
+        padding: 10px;
+    }
+
+    .sample-form input,
+    .sample-form select,
+    .sample-form textarea {
+        font-size: 16px;
+    }
+
+    .submit-btn,
+    .result-btn {
+        width: 100%;
+        min-height: 46px;
+    }
+}
+
+/* ========================================
+   15. AKSESIBILITAS
+======================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #818cf8;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
